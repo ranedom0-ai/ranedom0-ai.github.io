@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fatimaezzahra Ejjadouri – Développeuse Web Full Stack</title>
+<meta name="description" content="Portfolio de Fatimaezzahra Ejjadouri, étudiante en développement web full stack à Safi, à la recherche d'un stage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --side: #ECE7E3;
+    --ink: #1B2A41;
+    --muted: #5A6577;
+    --accent: #2B6A6C;
+    --accent-soft: #DCEEEE;
+    --warm: #C2701F;
+    --warm-soft: #FBEBD6;
+    --line: #DDD8D3;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.7; }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+  .layout { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
+
+  /* Colonne gauche */
+  aside { background: linear-gradient(180deg, #E4EEEE 0%, var(--side) 45%); padding: 44px 32px; border-top: 6px solid var(--accent); }
+  .side-in { position: sticky; top: 44px; }
+  .photo { display: block; width: 100%; max-width: 200px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; background: var(--line); margin-bottom: 26px; border: 4px solid #fff; box-shadow: 0 0 0 2px var(--accent); }
+  aside h1 { font-family: var(--serif); font-weight: 600; font-size: 1.9rem; line-height: 1.15; margin: 0 0 6px; }
+  aside .role { margin: 0 0 28px; color: var(--accent); font-weight: 600; font-size: .98rem; }
+  aside nav { display: flex; flex-direction: column; margin-bottom: 28px; border-top: 1px solid var(--line); }
+  aside nav a { color: var(--ink); text-decoration: none; padding: 9px 0; border-bottom: 1px solid var(--line); font-weight: 500; font-size: .95rem; }
+  aside nav a { border-left: 3px solid transparent; padding-left: 10px; transition: padding-left .15s, border-color .15s; }
+  aside nav a:hover { color: var(--accent); border-left-color: var(--warm); padding-left: 16px; }
+  .contact-list { list-style: none; margin: 0; padding: 0; font-size: .92rem; }
+  .contact-list li { padding: 3px 0; word-break: break-word; }
+  .contact-list b { display: block; font-weight: 600; font-size: .78rem; color: var(--muted); margin-top: 8px; }
+  .contact-list a { color: var(--ink); }
+
+  /* Contenu */
+  main { padding: 56px clamp(24px, 6vw, 80px) 40px; max-width: 880px; }
+  section { padding: 0 0 48px; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.7rem; margin: 0 0 18px; padding-bottom: 10px; color: var(--accent); border-bottom: 3px solid var(--warm); display: inline-block; }
+  section p { margin: 0 0 14px; max-width: 66ch; }
+
+  .item { display: grid; grid-template-columns: 150px 1fr; gap: 4px 28px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .item:first-of-type { border-top: 0; padding-top: 4px; }
+  .item .when { color: var(--warm); font-weight: 600; font-size: .92rem; }
+  .item h3 { font-size: 1.05rem; font-weight: 600; margin: 0 0 2px; }
+  .item .where { color: var(--muted); margin: 0 0 6px; }
+  .item p { margin: 0 0 8px; color: var(--ink); }
+  .item ul { margin: 0 0 8px; padding-left: 18px; }
+  .tech { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: .88rem; font-weight: 500; padding: 2px 12px; border-radius: 999px; margin: 0 6px 6px 0; }
+  .tech b { font-weight: 600; color: var(--ink); }
+  .tech a { text-decoration: none; font-weight: 600; }
+  .tech:has(a) { background: var(--warm-soft); }
+  .tech:has(a) a { color: var(--warm); }
+
+  dl { margin: 0; display: grid; grid-template-columns: 170px 1fr; gap: 10px 28px; }
+  dt { font-weight: 600; color: var(--accent); }
+  dd { margin: 0; color: var(--ink); }
+
+  footer { padding: 24px clamp(24px, 6vw, 80px) 36px; color: var(--muted); font-size: .88rem; border-top: 4px solid var(--accent); margin-top: 8px; }
+  ::selection { background: var(--warm-soft); color: var(--ink); }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    aside { padding: 32px 24px; }
+    .side-in { position: static; display: grid; grid-template-columns: 140px 1fr; gap: 0 22px; align-items: start; }
+    .photo { max-width: 140px; margin-bottom: 0; grid-row: span 2; }
+    aside nav, .contact-list { grid-column: 1 / -1; }
+    aside nav { margin-top: 24px; }
+    .item, dl { grid-template-columns: 1fr; }
+    dt { margin-top: 6px; }
+  }
+  @media (max-width: 480px) {
+    .side-in { grid-template-columns: 1fr; }
+    .photo { grid-row: auto; margin-bottom: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } aside nav a { transition: none; } }
+  @media print { aside nav { display: none; } .layout { display: block; } }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside>
+    <div class="side-in">
+      <!-- Mets ta photo dans le même dossier sous le nom photo.jpg -->
+      <img class="photo" src="photo.jpg" alt="Portrait de Fatimaezzahra Ejjadouri" onerror="this.style.display='none'">
+      <div>
+        <h1>Fatimaezzahra Ejjadouri</h1>
+        <p class="role">Développeuse Web Full Stack<br>Stagiaire, 2<sup>e</sup> année DEVOWFS</p>
+      </div>
+
+      <nav aria-label="Navigation principale">
+        <a href="#profil">Profil</a>
+        <a href="#formation">Formation</a>
+        <a href="#competences">Compétences</a>
+        <a href="#projets">Projets</a>
+        <a href="#langues">Langues</a>
+      </nav>
+
+      <ul class="contact-list">
+        <li><b>E-mail</b><a href="mailto:ranedom0@gmail.com">ranedom0@gmail.com</a></li>
+        <li><b>Téléphone</b><a href="tel:+212632654533">06 32 65 45 33</a></li>
+        <li><b>Ville</b>Safi, Maroc</li>
+        <li><b>GitHub</b><a href="https://github.com/ranedom0-ai" target="_blank" rel="noopener">github.com/ranedom0-ai</a></li>
+        <li><b>LinkedIn</b><a href="https://www.linkedin.com/in/fati-bts-787a281a5/" target="_blank" rel="noopener">fati-bts-787a281a5</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div>
+    <main>
+      <section id="profil">
+        <h2>Profil</h2>
+        <p>Étudiante en 2<sup>e</sup> année de Développement Digital, option Web Full Stack, à l'OFPPT (NTIC Safi). Je conçois des applications web avec React et je me forme aux bases de données et au développement back-end avec PHP et Laravel.</p>
+        <p>Je recherche un stage en développement web pour mettre mes compétences en pratique au sein d'une équipe et progresser sur des projets concrets.</p>
+      </section>
+
+      <section id="formation">
+        <h2>Formation</h2>
+        <div class="item">
+          <div class="when">2025 – 2027</div>
+          <div>
+            <h3>Technicien spécialisé en Développement Digital, option Web Full Stack</h3>
+            <p class="where">OFPPT, NTIC Safi. 2<sup>e</sup> année en cours</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="when">2025</div>
+          <div>
+            <h3>Baccalauréat, Sciences Physiques</h3>
+          </div>
+        </div>
+      </section>
+
+      <section id="competences">
+        <h2>Compétences</h2>
+        <dl>
+          <dt>Front-end</dt><dd>HTML5, CSS3, JavaScript (ES6+), React, Vite, Redux Toolkit</dd>
+          <dt>Back-end</dt><dd>PHP, Laravel, Node.js</dd>
+          <dt>Bases de données</dt><dd>MySQL, conception UML et Merise</dd>
+          <dt>Outils</dt><dd>Git, GitHub, VS Code</dd>
+        </dl>
+      </section>
+
+      <section id="projets">
+        <h2>Projets</h2>
+
+        <div class="item">
+          <div class="when">2026</div>
+          <div>
+            <h3>BiblioApp</h3>
+            <p>Application web développée avec React et Vite, construite avec des composants réutilisables.</p>
+            <p class="tech"><b>Technologies :</b> React, Vite, JavaScript</p>
+            <!-- Remplace par le lien du dépôt de ce projet -->
+            <p class="tech"><a href="https://github.com/ranedom0-ai" target="_blank" rel="noopener">Voir le code sur GitHub</a></p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="when">2026</div>
+          <div>
+            <h3>Série de travaux pratiques React</h3>
+            <p>Neuf TP du module DEVOWFS203, regroupés dans un seul projet Vite.</p>
+            <p class="tech"><b>Technologies :</b> React, Vite</p>
+            <p class="tech"><a href="https://github.com/ranedom0-ai" target="_blank" rel="noopener">Voir le code sur GitHub</a></p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="when">2026</div>
+          <div>
+            <h3>Exposé sur Redux Toolkit</h3>
+            <p>Recherche et présentation orale devant la classe, préparées et présentées en binôme.</p>
+            <p class="tech"><b>Technologies :</b> Redux Toolkit, React</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="langues">
+        <h2>Langues</h2>
+        <dl>
+          <dt>Arabe</dt><dd>Langue maternelle</dd>
+          <dt>Français</dt><dd>Niveau intermédiaire</dd>
+          <dt>Anglais</dt><dd>Niveau intermédiaire</dd>
+        </dl>
+      </section>
+    </main>
+
+    <footer>© <span id="year">2026</span> Fatimaezzahra Ejjadouri</footer>
+  </div>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
